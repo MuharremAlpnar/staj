@@ -30,7 +30,7 @@ def getPositionData(gps):
         #verilerin kaydedeceğimiz yerin adresini belirtiyoruz
         with open(r'/home/pi/Desktop/GPS/newoutput.txt', "a+") as file_object:
         # Bu mod, dosyanın sonuna veri eklemenize olanak sağlar ve dosya zaten varsa içeriği silmeden devam eder. Eğer dosya yoksa, yeni bir dosya oluşturulur.
-            .
+            
             file_object.seek(0)
             #fareyi dosyanın başına getirir
             
