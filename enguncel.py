@@ -1,4 +1,4 @@
-from gps import *
+import gps
 import time
 
 
@@ -8,9 +8,11 @@ def getPositionData(gps):
     nx = gpsd.next()
     
     if nx['class'] == 'TPV':
-        latitude = getattr(nx,'lat', "Unknown")
-        longitude = getattr(nx,'lon', "Unknown")
-        
+        #latitude = getattr(nx,'lat', "Unknown")
+        #longitude = getattr(nx,'lon', "Unknown")
+        latitude = 41.0082
+        longitude = 28.9784
+
         with open(r'dosya adresi', "a+") as file_object:
             
             file_object.seek(0)
@@ -27,10 +29,10 @@ def getPositionData(gps):
             file_object.write(info)
             
 
-gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
+gpsd = gps.gps(mode=gps.WATCH_ENABLE|gps.WATCH_NEWSTYLE)
 
 try:
-    print ("Application started!")
+    print("Application started!")
     while running:
         getPositionData(gpsd)
         time.sleep(1)
